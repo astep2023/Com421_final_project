@@ -40,25 +40,22 @@ footer{
 }
 
 #side_ul{
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    width: 200px;
+    height: 20px;
+
     list-style: None;
     padding-left: 65px;
     text-decoration: none;
 }
 
-li{
-    font-family: 'Roboto', sans-serif;
-    font-size: 17px;
-    width: 135px;
-    height: 20px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
 
-nav{
+#main_nav{
     width:200px;
     position: absolute;
     top: 190px;
-}
+} 
 
 #pie_graph_image{
     position: absolute;
