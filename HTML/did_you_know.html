@@ -6,7 +6,8 @@
         <meta name="description" content="education" />
         <link href = "../style.css" rel = "stylesheet"> 
         <link href = "../bootstrap.min.css" rel = "stylesheet">
-        <title>Hyunsuk's RESUME</title> 
+        <title>NoNeedToPayTicket</title> 
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     </head>
 
 <body>
@@ -31,10 +32,30 @@
                 <h1>Did you know?</h1>
                 <h4>About 40% of the violations happens in Chicago get dismissed.</h4>
             </div>
-            
-            <div id = "pie_graph_image">
-                <img src= "../IMAGE/Pie_graph.png" alt = "Liable_vs_Not_liable">
+
+            <div id="piechart">
             </div>
+            <script type="text/javascript">
+                // Load google charts
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+                
+                // Draw the chart and set the chart values
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                  ['liability', 'count'],
+                  ['Liable', 187],
+                  ['Not Liable', 312],
+                ]);
+                
+                  // Optional; add a title and set the width and height of the chart
+                  var options = {'title':'Liable vs Not Liable', 'width':1000, 'height':400};
+                
+                  // Display the chart inside the <div> element with id="piechart"
+                  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                  chart.draw(data, options);
+                }
+            </script>
 
         <div id = "did_you_know_sub">
             <br>
@@ -98,8 +119,36 @@
                     </table>
                 </div>
             </div>
+            <br>
+            <h3>Check out your chance of getting your ticket dismissed</h3>
 
-            <img src = "../IMAGE/violations_bar_graph.png" alt = "bar_graph" class = 'img-fluid'>
+            <div id="myChart"></div>
+            <script>
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+                
+                function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ['Violation descriptopn', 'percent'],
+                  ['Expired Plates or temporary Registration',(40/144)*100],
+                  ['Expired Meter, Non-Central Business District',(35/88)*100],
+                  ['Parking/Standing in prohibited time',(41/77)*100],
+                  ['Parking or Standing in Bus/Taxi/Carriage Stand',(26/64)*100],
+                  ['Residential Permit Parking',(25/63)*100],
+                  ['No city sticker', (20/63)*100]
+                ]);
+                
+                var options = {
+                  'title': "Chnace of getting dismissed",
+                  'width':1000, 
+                  'height':600,
+                };
+                
+                var chart = new google.visualization.BarChart(document.getElementById('myChart'));
+                  chart.draw(data, options);
+                }
+            </script>
+            More than half of the parking tickets that are issued because of prohibited time parking get dismissed.
                 
         </div>
 
